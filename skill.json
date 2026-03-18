@@ -1,6 +1,6 @@
 {
   "name": "skills-prod-jiadian",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "description": "收费技能 - 授权验证 + 手机号绑定 skills-prod-jiadian",
   "type": "python",
   "script": "scripts/demo_function.py",
