@@ -122,9 +122,10 @@ def main():
     # 第二步：根据授权结果打印提示
     if not valid:
         # 授权失败，提示购买并退出
+        buy_url = os.environ.get("SKILL_BUY_URL", "").strip() or "https://your-website.com/buy"
         print("❌ 授权验证失败")
         print(f"⚠️  原因: {msg}")
-        print("⚠️  购买授权请访问: https://your-website.com/buy")
+        print(f"⚠️  购买授权请访问: {buy_url}")
         sys.exit(1)
 
     # 授权通过才继续

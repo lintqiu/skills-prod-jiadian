@@ -1,13 +1,21 @@
 {
   "name": "skills-prod-jiadian",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "收费技能 - 授权验证 + 手机号绑定 skills-prod-jiadian",
   "type": "python",
   "script": "scripts/demo_function.py",
   "env": {
     "SKILL_LICENSE_KEY": {
-      "description": "授权码，购买后获取",
+      "description": "授权码，购买后获取。演示可用 demo-license-123",
       "required": true
+    },
+    "SKILL_LICENSE_VERIFY_URL": {
+      "description": "可选。生产环境授权校验接口 URL，POST {\"key\": \"授权码\"}，返回 {\"valid\": true/false, \"message\": \"...\"}",
+      "required": false
+    },
+    "SKILL_BUY_URL": {
+      "description": "可选。购买授权码页面链接，用于授权失败时的提示",
+      "required": false
     }
   },
   "parameters": {

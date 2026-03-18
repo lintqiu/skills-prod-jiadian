@@ -1,17 +1,39 @@
 ---
 name: skills-prod-jiadian
 description: 收费技能示例 - 授权验证 + 手机号绑定 skills-prod-jiadian
-license: MIT
+license: MIT-0
 ---
 
 # skills-prod-jiadian
 
 收费技能示例，演示如何在 ClawHub 发布带授权验证和手机号绑定的付费技能。
 
+## Installation
 
-# Installation
+**Via ClawHub (recommended):**
 
+```bash
 clawhub install skills-prod-jiadian
+```
+
+**Manual:**
+
+通用环境（技能目录 `~/.openclaw/skills/`）：
+
+```bash
+git clone https://github.com/lintqiu/skills-prod-jiadian.git ~/.openclaw/skills/skills-prod-jiadian
+```
+
+火山 ArClaw（技能目录 `/root/.openclaw/workspace/skills/`）：
+
+```bash
+git clone https://github.com/lintqiu/skills-prod-jiadian.git /root/.openclaw/workspace/skills/skills-prod-jiadian
+```
+
+## 授权说明
+
+- **演示模式**：不配置 `SKILL_LICENSE_VERIFY_URL` 时，仅接受本地校验，演示授权码为 `demo-license-123`。
+- **生产模式**：设置 `SKILL_LICENSE_VERIFY_URL` 为你的校验接口后，授权码将通过该 URL 进行服务端验证（POST `{"key":"授权码"}`，返回 `{"valid":true/false,"message":"..."}`）。
 
 ## 隐私说明
 
@@ -32,7 +54,14 @@ clawhub install skills-prod-jiadian
 export SKILL_LICENSE_KEY=你的授权码
 ```
 
-购买授权码请访问：https://your-website.com/buy
+演示可用：`SKILL_LICENSE_KEY=demo-license-123`。购买授权码请访问：https://your-website.com/buy
+
+### 可选环境变量
+
+| 变量 | 说明 |
+|------|------|
+| `SKILL_LICENSE_VERIFY_URL` | 生产环境授权校验接口 URL，设置后使用服务端验证 |
+| `SKILL_BUY_URL` | 购买授权码页面链接，授权失败时提示用 |
 
 ## When to use
 
